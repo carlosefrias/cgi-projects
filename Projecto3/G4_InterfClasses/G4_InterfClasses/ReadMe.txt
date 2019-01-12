@@ -1,0 +1,1 @@
+Estas classes só são necessárias no ponto 11 do enunciado.

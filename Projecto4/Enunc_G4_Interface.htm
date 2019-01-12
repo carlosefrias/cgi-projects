@@ -1,0 +1,1074 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0073)http://paginas.fe.up.pt/~aas/pub/Aulas/CGI/Exercicios/Enunc_G4_Interface/ -->
+<HTML><HEAD><TITLE></TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.2627" name=GENERATOR></HEAD>
+<BODY>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt; TEXT-ALIGN: center" 
+align=center><B style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 16pt; mso-bidi-font-size: 10.0pt">Computação Gráfica e 
+Interfaces<O:P></O:P></SPAN></B></P>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt; TEXT-ALIGN: center" 
+align=center><B style="mso-bidi-font-weight: normal"><SPAN 
+style="FONT-SIZE: 12pt; mso-bidi-font-size: 10.0pt">Exercícios - Aulas Teórico 
+Práticas</SPAN></B><O:P></O:P></P>
+<H1 style="MARGIN: 54pt 0cm 0pt; TEXT-INDENT: 0cm"><SPAN 
+style="mso-list: Ignore"><FONT size=5>4.</FONT><SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN><FONT 
+size=5>Preparação de uma Interface de Base (Java)<O:P></O:P></FONT></H1>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt">Neste grupo de exercícios 
+desenvolve&shy;-se um programa, em <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>Java</EM></SPAN></SPAN>, cuja interface se apresenta 
+na Fig. 4.1 e que servirá de base para a resolução de exercícios seguintes. O 
+seu objectivo é a familiarização com um sistema de desenvolvimento (Forte), quer 
+ao nível da utilização das entidades pré&shy;-definidas (<SPAN class=Blue><SPAN 
+lang=EN-GB style="COLOR: #993300"><EM>forms</EM></SPAN></SPAN>, botões, caixas 
+de texto, etc.), quer ao nível da programação em modo evento.</P>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt" align=center><IMG 
+alt="janela a gerar" src="Enunc_G4_Interface_files/fig1.png"></P>
+<P class=Fig style="MARGIN: 18pt 1cm 0pt"><A name=OLE_LINK1></A><A 
+name=OLE_LINK2></A><A name=DDE_LINK1><SPAN style="mso-bookmark: OLE_LINK2"><SPAN 
+style="mso-bookmark: OLE_LINK1"><SPAN 
+style="FONT-SIZE: 10pt; mso-no-proof: yes"><V:SHAPETYPE id=_x0000_t75 
+stroked="f" filled="f" path="m@4@5l@4@11@9@11@9@5xe" o:preferrelative="t" 
+o:spt="75" coordsize="21600,21600"><V:STROKE 
+joinstyle="miter"></V:STROKE><V:FORMULAS><V:F 
+eqn="if lineDrawn pixelLineWidth 0"></V:F><V:F eqn="sum @0 1 0"></V:F><V:F 
+eqn="sum 0 0 @1"></V:F><V:F eqn="prod @2 1 2"></V:F><V:F 
+eqn="prod @3 21600 pixelWidth"></V:F><V:F 
+eqn="prod @3 21600 pixelHeight"></V:F><V:F eqn="sum @0 0 1"></V:F><V:F 
+eqn="prod @6 1 2"></V:F><V:F eqn="prod @7 21600 pixelWidth"></V:F><V:F 
+eqn="sum @8 21600 0"></V:F><V:F eqn="prod @7 21600 pixelHeight"></V:F><V:F 
+eqn="sum @10 21600 0"></V:F></V:FORMULAS><V:PATH o:connecttype="rect" 
+gradientshapeok="t" o:extrusionok="f"></V:PATH><O:LOCK aspectratio="t" 
+v:ext="edit"></O:LOCK></V:SHAPETYPE></SPAN><O:P></O:P></SPAN></SPAN></A></P>
+<P class=Fig style="MARGIN: 18pt 1cm 0pt" align=center><SPAN 
+style="mso-bookmark: DDE_LINK1"><SPAN style="mso-bookmark: OLE_LINK2"><SPAN 
+style="mso-bookmark: OLE_LINK1">Fig. <SPAN 
+style="mso-field-code: ' STYLEREF 1 n '"><SPAN 
+style="mso-no-proof: yes">4</SPAN></SPAN>.<SPAN 
+style="mso-field-code: ' SEQ Fig. * ARABIC r 1 '"><SPAN 
+style="mso-no-proof: yes">1</SPAN></SPAN></SPAN></SPAN></SPAN><SPAN 
+style="mso-bookmark: OLE_LINK1"> </SPAN>- Interface a desenvolver<O:P></O:P></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">1.</SPAN></B>No seu directório de trabalho crie o 
+directório <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>Grupo1</EM></SPAN></SPAN>. Inicie o sistema de 
+desenvolvimento <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>Forte for Java</EM></SPAN></SPAN>. <SPAN 
+style="mso-spacerun: yes">&nbsp;</SPAN>Na janela <I 
+style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">Explorer 
+</SPAN></I>seleccione <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Filesystems</SPAN></I> e, com o botão direito do rato, 
+escolha a opção <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">mount directory</SPAN></I>. Com o cursor sobre esse novo 
+directório escolha <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">new-&gt;Gui Forms-&gt;JFrame</SPAN></I>. Designe a classe 
+por <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>DrawProg</EM></SPAN></SPAN>. O sistema cria uma 
+classe com este nome. Na janela <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Explorer</SPAN></I> pode ver as classes existentes no 
+projecto, na janela <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Form Editor </SPAN></I>pode ver/alterar as propriedades 
+de cada uma delas, e na janela <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Source Editor</SPAN></I> pode ver/alterar o código que 
+constitui cada classe.<O:P></O:P></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">2.</SPAN></B> Com a janela da classe <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">DrawProg</SPAN></I> aberta (<I 
+style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">Form 
+Editor)</SPAN></I>, escolha <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Set Layout -&gt; BorderLayout </SPAN></I>carregando no 
+botão direito do rato sobre a janela.<I 
+style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">.</SPAN></I> 
+Escolha <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Add_From_Palette-&gt;Swing 
+(other)-&gt;JDesktopPane</SPAN></I> e altere as suas propriedades para colocar 
+no centro (<I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Properties-&gt;Layout-&gt;Direction-&gt;center).</SPAN></I> 
+Ainda na <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">JFrame</SPAN></I>, escolha <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Add_From_Palette -&gt;swing-&gt;JPanel</SPAN></I>; nas 
+propriedades deste componente escolha <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Direction-&gt;west</SPAN></I> e em <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Other_Properties</SPAN></I> faça <I 
+style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">PreferredSize 
+</SPAN></I>igual a [120,100]. A janela <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">JPanel</SPAN></I> escolha <I 
+style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">Set 
+Layout-&gt;GridBagLayout, </SPAN></I>faça <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">+-&gt;swing-&gt;JTextField</SPAN></I>, <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">JLabel</SPAN></I> e 3 vezes <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">JButton</SPAN></I>. Escolha <I 
+style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">Customize 
+Layout</SPAN></I>; nesta janela pode alterar a posição dos objectos colocados no 
+<I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">JPanel</SPAN></I>. Altere as propriedades destes 
+componentes para os valores pretendidos como mostra a figura 4.1. No <I 
+style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">Form Editor 
+</SPAN></I>existe um botão para testar a interface criada sem ser necessário 
+compilar.<O:P></O:P></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">3.</SPAN></B> Seleccione o directório de trabalho na 
+janela <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Explorer</SPAN></I> e adicione uma classe do tipo <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">JInternalFrame.</SPAN></I> Designe a classe de <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">DrawArea</SPAN></I>. Da mesma forma crie uma outra classe 
+<I style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">new-&gt;Gui 
+Forms-&gt;JPanel</SPAN></I>. Designe-a de <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">MyCanvas</SPAN></I>.<O:P></O:P></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">4.</SPAN></B>Altere a classe <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">MyCanvas</SPAN></I> para:<O:P></O:P></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 2cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 2cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US">public 
+class MyCanvas extends javax.swing.JPanel {<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 2cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 2cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>DrawArea 
+drawArea;<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 2cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 2cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>/** Creates new MyCanvas 
+*/<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 2cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>public MyCanvas(DrawArea d) 
+{<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 2cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>drawArea = d;<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 2cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 2cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier">}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier">NOTA: Pressionando CTRL+L o editor 
+completa as palavras conhecidas<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">5.</SPAN></B>Altere a classe <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">DrawArea</SPAN></I> para:<O:P></O:P></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US">public 
+class DrawArea extends javax.swing.JInternalFrame {<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>static final int 
+desktopWidth = 500;<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>static final int 
+desktopHeight = 400;<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>static final int 
+desktopMargin = 10;<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>DrawProg 
+drawProg;<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>MyCanvas<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN>myCanvas;<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>/** Creates new form 
+DrawArea */<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;</SPAN>public DrawArea(DrawProg source) 
+{<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>initComponents();<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><SPAN style="FONT-SIZE: 10pt; FONT-FAMILY: Courier">drawProg = 
+source;<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US">setDrawAreaSize();<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>pack();<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>myCanvas = new MyCanvas(this);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>getContentPane().add(myCanvas);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>public int 
+getMargin()<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>{<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>return(desktopMargin);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>private void 
+setDrawAreaSize()<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>{<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>setPreferredSize(new 
+Dimension(desktopWidth, desktopHeight));<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>setSize(new 
+Dimension(desktopWidth, desktopHeight));<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier">setLocation(desktopMargin, 
+desktopMargin);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier">...<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">6.</SPAN></B>Finalmente altere a classe <I 
+style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">DrawProg 
+</SPAN></I>para:<O:P></O:P></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 35.45pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US">public 
+class DrawProg extends javax.swing.JFrame {<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>DrawArea 
+drawArea;<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>/** Creates new form 
+DrawProg */<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>public DrawProg() 
+{<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>initComponents();<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>//Set up the GUI.<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>drawArea = createDrawArea();<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>jDesktopPane1.add(drawArea);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>jDesktopPane1.setPreferredSize(new Dimension(drawArea.getWidth() + 2 * 
+drawArea.getMargin(), drawArea.getHeight() + 2 * 
+drawArea.getMargin()));<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier">pack();<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>private DrawArea 
+createDrawArea()<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>{<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US">DrawArea 
+dArea = new DrawArea(this);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier">dArea.setVisible(true); 
+<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>try {<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US">dArea.setSelected(true);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>} catch (Exception e) { 
+};<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier">return(dArea);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; TEXT-INDENT: -7.05pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>}<SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp; </SPAN></SPAN><O:P></O:P></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">7.</SPAN></B> Na janela <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Explorer</SPAN></I> seleccione o directório de trabalho e 
+escolha <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Compile All</SPAN></I>. Irão aparecer erros indicando que 
+algumas classes não são conhecidas. Terá de acrescentar no início dos 
+respectivos ficheiros uma ou mais instruções <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">import</SPAN></I>. Nomeadamente as classes <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">java.awt.Dimension</SPAN></I> e <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">javax.swing.*</SPAN></I>. Quando terminado seleccione o 
+ficheiro <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">DrawProg </SPAN></I>e escolha <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Execute</SPAN></I>. Nesta fase já deverá aparecer uma 
+interface idêntica à da figura 4.1.<O:P></O:P></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">8.</SPAN></B> Altere as propriedades do objecto <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">JTextField</SPAN></I> para não permitir a edição do texto 
+(propriedade <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">Enabled</SPAN></I> a falso)<O:P></O:P></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">9.</SPAN></B> Associe funções para tratar os eventos de 
+<I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">mouseclick</SPAN></I> sobre os botões da interface: na 
+janela <I style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">Form 
+Editor</SPAN></I> seleccione um objecto tipo botão e escolha <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">events-&gt;mousse-&gt;mouseclicked</SPAN></I>. O sistema 
+insere automaticamente uma função para tratar esse evento. Experimente o seu 
+funcionamento com a escrita de uma mensagem (ex: System.out.println(“Botão 
+...<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>“)).<O:P></O:P></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">10.</SPAN></B> Adição de tratamento de eventos de rato 
+na janela de desenho: a forma de implementar esta interacção a qualquer objecto 
+é através das seguintes funções:<O:P></O:P></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><O:P></O:P></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US">addMouseListener(new 
+java.awt.event.MouseAdapter () {<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>public void mouseClicked (java.awt.event.MouseEvent evt) 
+{<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier">myCanvasMouseClicked 
+(evt);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US">addMouseMotionListener(new 
+java.awt.event.MouseMotionAdapter () {<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>public void mouseMoved (java.awt.event.MouseEvent evt) 
+{<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier">myCanvasMouseMoved 
+(evt);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>);<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bidi-font-size: 11.0pt">Adicione estas instruções no construtor da 
+classe <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">MyCanvas</SPAN></I> e ainda dentro da definição desta 
+classe adicione as funções que tratam esses eventos:<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>private void 
+myCanvasMouseClicked(java.awt.event.MouseEvent evt) {<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>// Add your 
+handling code here:<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>private void 
+myCanvasMouseMoved(java.awt.event.MouseEvent evt) {<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>// Add 
+your handling code here:<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+lang=EN-US 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier">}<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="FONT-SIZE: 10pt; FONT-FAMILY: Courier"><O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 
+style="MARGIN: 0cm 0cm 0pt 14.2pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bidi-font-size: 11.0pt">Com estas funções definidas já pode obter a 
+posição do cursor na área de desenho e actualizar o objecto <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">TextField</SPAN></I> criado para esse efeito na classe <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">DrawProg</SPAN></I>. Use os métodos <I 
+style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">getX() 
+</SPAN></I>e <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">getY()</SPAN></I> do objecto <I 
+style="mso-bidi-font-style: normal"><SPAN style="COLOR: #993300">evt</SPAN></I> 
+para obter as coordenadas actuais do rato. Para alterar o valor no ecrã terá de 
+usar o método <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">setText()</SPAN></I> de <I 
+style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">JTextField</SPAN></I>. Uma vez que este objecto é privado 
+em <I style="mso-bidi-font-style: normal"><SPAN 
+style="COLOR: #993300">DrawProg</SPAN></I>, é necessário definir um método 
+público nesta classe para fazer essa alteração.<O:P></O:P></SPAN></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">11.</SPAN></B> As ferramentas previstas na interface 
+são <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>Line</EM></SPAN></SPAN>, <SPAN class=Blue><SPAN 
+lang=EN-GB style="COLOR: #993300"><EM>Rectangle</EM></SPAN></SPAN> e <SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>Polyline</EM></SPAN></SPAN>. Pretende&shy;-se que um 
+qualquer evento (<SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>MouseDown</EM></SPAN></SPAN>, <SPAN class=Blue><SPAN 
+lang=EN-GB style="COLOR: #993300"><EM>MouseUp</EM></SPAN></SPAN>, <SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>MouseMove</EM></SPAN></SPAN>, etc.) sobre a área de 
+desenho seja atendido por um procedimento correspondente, localizado na <SPAN 
+class=Blue><SPAN lang=EN-GB style="COLOR: #993300"><EM>Classe</EM></SPAN></SPAN> 
+da ferramenta que se encontra seleccionada. Para o efeito, obtenha na página web 
+da disciplina a interface <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>AnyTool.java</EM></SPAN></SPAN>, destinada a definir 
+a interface comum às várias ferramentas. Juntamente com <SPAN class=Blue><SPAN 
+lang=EN-GB style="COLOR: #993300"><EM>AnyTool</EM></SPAN></SPAN> são fornecidas 
+as seguintes classes: <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>LineTool</EM></SPAN></SPAN>, <SPAN class=Blue><SPAN 
+lang=EN-GB style="COLOR: #993300"><EM>RectTool</EM></SPAN></SPAN>, <SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>PolyTool</EM></SPAN></SPAN> e <SPAN class=Blue><SPAN 
+lang=EN-GB style="COLOR: #993300"><EM>MyCanvas</EM></SPAN></SPAN>. Esta última 
+substitui a sua classe <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>MyCanvas</EM></SPAN></SPAN> actual.<O:P></O:P></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><A 
+name=OLE_LINK3><B style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">12.</SPAN></B>Adicione à classe </A><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>DrawProg</EM></SPAN></SPAN> a variável </SPAN><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>ToolSelected</EM></SPAN></SPAN> (de tipo </SPAN><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>AnyTool</EM></SPAN></SPAN>), que indica qual a 
+ferramenta seleccionada, e crie uma instância de cada uma das ferramentas 
+disponíveis e guarde-as num </SPAN><SPAN style="mso-bookmark: OLE_LINK3"><SPAN 
+class=Blue><SPAN lang=EN-GB style="COLOR: #993300"><EM>array</EM></SPAN></SPAN>. 
+Adicione também uma rotina </SPAN><SPAN style="mso-bookmark: OLE_LINK3"><SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>ChangeTool,</EM></SPAN></SPAN> que altera o valor da 
+variável </SPAN><SPAN style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN 
+lang=EN-GB style="COLOR: #993300"><EM>ToolSelected</EM></SPAN></SPAN>, de acordo 
+com o valor de um parâmetro </SPAN><SPAN style="mso-bookmark: OLE_LINK3"><SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>NewTool</EM></SPAN></SPAN>, e modifique o código da 
+classe </SPAN><SPAN style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN 
+lang=EN-GB style="COLOR: #993300"><EM>DrawProg</EM></SPAN></SPAN>, 
+acrescentando&shy;-lhe chamadas a </SPAN><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>ChangeTool</EM></SPAN></SPAN> que alterem o valor da 
+nova variável </SPAN><SPAN style="mso-bookmark: OLE_LINK3"><SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>ToolSelected</EM></SPAN></SPAN>, de acordo com a 
+selecção feita nos botões.</SPAN></P>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">Código 
+exemplo:<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN-TOP: 0cm; TEXT-INDENT: 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN-TOP: 0cm; TEXT-INDENT: 1cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp;</SPAN>static final int LINETOOL = 
+0;<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN-TOP: 0cm; TEXT-INDENT: 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN></SPAN></SPAN><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-US">static 
+final int RECTTOOL = 1;<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN-TOP: 0cm; TEXT-INDENT: 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>static final int POLYTOOL = 
+2;<O:P></O:P></SPAN></SPAN></H6>
+<H6 style="MARGIN-TOP: 0cm; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-US"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;</SPAN>// variáveis locais a 
+DrawProg<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN-TOP: 0cm; TEXT-INDENT: 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>private AnyTool 
+toolSelected;<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN-TOP: 0cm; TEXT-INDENT: 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>private AnyTool[] tools = new 
+AnyTool[3];<O:P></O:P></SPAN></SPAN></H6>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN lang=EN-US 
+style="mso-ansi-language: EN-US"><O:P></O:P></SPAN></SPAN></P>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>public void changeTool(int 
+newTool)<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN lang=EN-US 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'; mso-ansi-language: EN-US"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN></SPAN></SPAN><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">{<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>toolSelected.stopTool();<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>toolSelected = 
+tools[newTool];<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>toolSelected.startTool();<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>}<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-tab-count: 1">&nbsp; </SPAN><O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>public AnyTool 
+getToolSelected()<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>{<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>return(toolSelected);<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>}<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'">No 
+constructor de DrawProg<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>tools[LINETOOL] = new 
+LineTool();<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;</SPAN>tools[RECTTOOL] = new 
+RectTool();<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>tools[POLYTOOL] = new 
+PolyTool();<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </SPAN>toolSelected = 
+tools[LINETOOL];<O:P></O:P></SPAN></SPAN></H6>
+<H6 
+style="MARGIN: 0cm 0cm 0pt 21.25pt; LINE-HEIGHT: normal; mso-list: none"><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN 
+style="FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: 'Courier New'"><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; 
+</SPAN>toolSelected.startTool();<O:P></O:P></SPAN></SPAN></H6>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><SPAN 
+style="mso-bookmark: OLE_LINK3"><B style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">13.</SPAN></B> Pretende&shy;-se agora permitir o 
+desenho de figuras geométricas na área de desenho, de acordo com a ferramenta 
+seleccionada. Para maior comodidade na programação e para uma correcta 
+modularização do programa, foram criadas três novas classes, </SPAN><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>LineTool.java</EM></SPAN></SPAN>, </SPAN><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>RectTool.java</EM></SPAN></SPAN> e </SPAN><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>PolyTool.java</EM></SPAN></SPAN>, nas quais serão 
+desenvolvidas as rotinas correspondentes a cada ferramenta. Comece por analisar 
+como são processados os eventos do rato. Por exemplo, o método </SPAN><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>ChangeTool</EM></SPAN></SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>efectua as chamadas necessárias às 
+rotinas de </SPAN><SPAN style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN 
+lang=EN-GB style="COLOR: #993300"><EM>Start</EM></SPAN></SPAN> e de </SPAN><SPAN 
+style="mso-bookmark: OLE_LINK3"><SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>Stop</EM></SPAN></SPAN><SPAN lang=EN-GB> </SPAN>e em 
+consequência disso, ao carregar num dos botões, as rotinas de inicialização e de 
+terminação das duas ferramentas envolvidas são chamadas automaticamente, a que 
+estava e a que fica seleccionada).<O:P></O:P></SPAN></P><SPAN 
+style="mso-bookmark: OLE_LINK3"></SPAN>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">14.</SPAN></B> Estude o desenho interactivo de 
+segmentos de recta, cujo funcionamento se descreve nos três passos seguintes e 
+comente os resultados obtidos:<O:P></O:P></P>
+<P class=Ttulo9Q3 style="MARGIN: 0cm 0cm 0pt 49.65pt"><B 
+style="mso-bidi-font-weight: normal"><SPAN style="mso-list: Ignore">i.<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></B>Um primeiro <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>MouseDown</EM></SPAN></SPAN> no botão esquerdo do 
+rato define o p<A name=DDE_LINK2>onto inicial (</A><SPAN 
+style="mso-bookmark: DDE_LINK2"><SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>LineTool.java</EM></SPAN></SPAN>, rotina </SPAN><SPAN 
+style="mso-bookmark: DDE_LINK2"><SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>BeginLine</EM></SPAN></SPAN>);<A 
+name=DDE_LINK3><O:P></O:P></A></SPAN></P><SPAN 
+style="mso-bookmark: DDE_LINK3"></SPAN><SPAN 
+style="mso-bookmark: DDE_LINK2"></SPAN>
+<P class=Ttulo9Q3 style="MARGIN: 0cm 0cm 0pt 49.65pt"><B 
+style="mso-bidi-font-weight: normal"><SPAN style="mso-list: Ignore">ii.<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></B>Enquanto o botão esquerdo do rato se mantiver pressionado, o 
+movimento do cursor na janela de desenho redefine, interactivamente, um segundo 
+ponto; isto permite desenhar um novo segmento de recta desde o ponto original 
+definido em [i] para cada novo ponto definido pelo movimento do rato (<SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>LineTool.java</EM></SPAN></SPAN>, rotina <SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>RubberP1Line</EM></SPAN></SPAN>);<A name=DDE_LINK4> 
+esta técnica é designada de </A><SPAN style="mso-bookmark: DDE_LINK4"><SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>Rubberband</EM></SPAN></SPAN>.<O:P></O:P></SPAN></P><SPAN 
+style="mso-bookmark: DDE_LINK4"></SPAN>
+<P class=Ttulo9Q3 style="MARGIN: 0cm 0cm 0pt 49.65pt"><B 
+style="mso-bidi-font-weight: normal"><SPAN style="mso-list: Ignore">iii.<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></B>Quando o botão esquerdo do rato é libertado (<SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>MouseUp</EM></SPAN></SPAN>), termina o processo de 
+desenho (<SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>LineTool.java</EM></SPAN></SPAN>, rotina <SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>EndLine</EM></SPAN></SPAN>); o sistema fica num 
+estado que permite o regresso ao ponto [i] ou a selecção de uma nova 
+ferramenta.<O:P></O:P></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">15.</SPAN></B> Implemente o desenho interactivo de 
+rectângulos. Estes são definidos por dois pontos diagonalmente opostos, 
+permitindo portanto um processamento idêntico ao adoptado para os segmentos de 
+recta. Implemente o procedimento anterior para o desenho de rectângulos. 
+Pretende-se apenas desenhar o contorno do rectângulo.<O:P></O:P></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-list: Ignore">16.</SPAN></B> Uma estratégia para desenhar 
+interactivamente uma linha poligonal (<SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>Polyline</EM></SPAN></SPAN>) consiste em definir uma 
+sucessão de vértices por sucessivos eventos <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>MouseDown</EM></SPAN></SPAN>, sendo o último vértice 
+definido por um evento <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>DoubleClick</EM></SPAN></SPAN>. Entre dois eventos 
+consecutivos (<SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>MouseDown</EM></SPAN></SPAN> ou <SPAN 
+class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>DoubleClick</EM></SPAN></SPAN>), utiliza&shy;-se a 
+técnica anterior de <SPAN class=Blue><SPAN lang=EN-GB 
+style="COLOR: #993300"><EM>Rubberband</EM></SPAN></SPAN> para posicionar um 
+segmento de recta da linha poligonal. Implemente esta estratégia.</P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-bidi-font-size: 11.0pt; mso-no-proof: yes"><SPAN 
+style="mso-list: Ignore">17.</SPAN></SPAN></B><SPAN 
+style="mso-bidi-font-size: 11.0pt"> Acrescente à interface um botão para limpar 
+a área de desenho.<SPAN style="mso-no-proof: yes"><O:P></O:P></SPAN></SPAN></P>
+<P class=Ttulo7Q1 style="MARGIN: 18pt 0cm 0pt 21.25pt; TEXT-INDENT: 0cm"><B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-bidi-font-size: 11.0pt; mso-no-proof: yes"><SPAN 
+style="mso-list: Ignore">18.</SPAN></SPAN></B> Adicione um botão para escolher a 
+cor de desenho actual.<SPAN 
+style="mso-bidi-font-size: 11.0pt; mso-no-proof: yes"><O:P></O:P></SPAN></P>
+<P>&nbsp;</P></BODY></HTML>

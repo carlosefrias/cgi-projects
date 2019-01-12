@@ -1,0 +1,423 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0073)http://paginas.fe.up.pt/~aas/pub/Aulas/CGI/Exercicios/Enunc_G2_Shad_Text/ -->
+<HTML><HEAD><TITLE></TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.2604" name=GENERATOR></HEAD>
+<BODY>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt; TEXT-ALIGN: center" 
+align=center><B><SPAN style="FONT-SIZE: 20pt">Computação Gráfica e Interfaces 
+(LEIC)<O:P></O:P></SPAN></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 0pt; TEXT-ALIGN: center" 
+align=center><B><SPAN style="FONT-SIZE: 20pt">Sistemas Gráficos 
+(LEEC)<O:P></O:P></SPAN></B></P>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt; TEXT-ALIGN: center" 
+align=center><B>Enunciados de exercícios para as aulas 
+práticas<O:P></O:P></B></P>
+<H1 style="MARGIN: 54pt 0cm 0pt 21.6pt"><A name=_Ref67805224><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><SPAN style="mso-list: Ignore">2.<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><SPAN lang=EN-GB style="mso-ansi-language: EN-GB">Shading 
+</SPAN>e Texturas</A><SPAN style="mso-bookmark: _Ref67805224"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><O:P></O:P></SPAN></SPAN></H1>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none"><SPAN 
+style="COLOR: black">O objectivo deste grupo de exercícios é aplicar os 
+conceitos de <U>Iluminação Constante</U> (</SPAN><I 
+style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="COLOR: black; mso-ansi-language: EN-GB">Flat Shading</SPAN></I><SPAN 
+style="COLOR: black">), <U>Iluminação Suavizada</U> (</SPAN><I 
+style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="COLOR: black; mso-ansi-language: EN-GB">Smooth Shading</SPAN></I><SPAN 
+style="COLOR: black">) pelo método de Gouraud e de <U>Textura</U>, em 
+superfícies originalmente planas e em superfícies curvas aproximadas por malhas 
+poligonais.</SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none" 
+align=center><IMG alt="Fig 2" src="Enunc_G2_Shad_Text_files/fig2_1.jpg"></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none" 
+align=center><A name=_Ref66268033><SPAN style="mso-bookmark: _Ref67804419">Fig. 
+<SPAN style="mso-field-code: ' SEQ Fig. * ARABIC '"><SPAN 
+style="mso-no-proof: yes">1</SPAN></SPAN></SPAN></A><SPAN 
+style="mso-bookmark: _Ref67804419"> - <SPAN style="COLOR: black">Cena 3D em 
+OpenGL</SPAN></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none" 
+align=center><SPAN style="mso-bookmark: _Ref67804419"><SPAN 
+style="COLOR: black"></SPAN></SPAN><O:P></O:P></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none">A 
+cena 3D da <SPAN style="mso-field-code: ' REF _Ref66268033 h '">Fig. <SPAN 
+style="mso-no-proof: yes">1</SPAN></SPAN> (ver programa executável, incluído no 
+código fornecido) constitui-se de, além dos três eixos e da fonte de luz (com 
+respectiva esfera simbólica), de <U>três "paredes"</U> (rectângulos coincidentes 
+com os planos do sistemas de coordenadas), <U>um prisma e um cilindro</U> 
+coincidentes com o eixo dos <B style="mso-bidi-font-weight: normal"><I 
+style="mso-bidi-font-style: normal">z</I></B> (o cilindro é o que possui maior 
+raio) e uma <U>pirâmide quadrangular </U>sem base. Vários dos objectos possuem 
+texturas.</P>
+<H2 style="MARGIN: 42pt 0cm 0pt 28.8pt"><SPAN 
+style="mso-bookmark: _Ref67805224"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><SPAN style="mso-list: Ignore">2.1.<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">Shading</SPAN> e </SPAN><SPAN 
+style="mso-bookmark: _Ref67805224"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">Smooth-shading</SPAN></SPAN><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><O:P></O:P></SPAN></H2>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none">Para 
+este conjunto de problemas (<B style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-field-code: ' REF _Ref67805224 w h  * MERGEFORMAT '">2</SPAN>.1. 
+<SPAN style="mso-field-code: ' REF _Ref67805224 h  * MERGEFORMAT '"><SPAN 
+lang=EN-GB style="mso-ansi-language: EN-GB">Shading</SPAN> e <SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">Smooth-shading</SPAN></SPAN></B>), só serão 
+tratados o prisma, o cilindro e a "parede" do plano <B 
+style="mso-bidi-font-weight: normal"><I 
+style="mso-bidi-font-style: normal">xy</I></B>.<O:P></O:P></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none">No 
+arquivo G2_Shad_Text é fornecido um conjunto de ficheiros com parte do código 
+para a criação daquela cena. Para este conjunto de problemas, o ficheiro 
+RGBpixmap.cpp e respectivo <I style="mso-bidi-font-style: normal"><SPAN 
+lang=EN-GB style="mso-ansi-language: EN-GB">header file</SPAN></I> não são 
+necessários. Na zona de declarações globais do programa encontram-se as 
+principais grandezas utilizadas, nomeadamente nas funções <SPAN 
+class=txtCharChar><FONT face="Courier New">display()</FONT></SPAN><SPAN 
+style="COLOR: black"> e </SPAN><SPAN class=txtCharChar><FONT 
+face="Courier New">inicializacao()</FONT></SPAN>.<O:P></O:P></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none"><SPAN 
+style="COLOR: black">Compile e faça correr o respectivo código. Como se pode 
+observar, a cena inicial é constituída pelos eixos, fonte de luz e parede do 
+plano <B style="mso-bidi-font-weight: normal"><I 
+style="mso-bidi-font-style: normal">xy</I></B>.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none"><I><SPAN 
+style="COLOR: black">Nota</SPAN></I><SPAN style="COLOR: black">: Para uma boa 
+percepção dos exercícios seguintes, leia o manual </SPAN><I 
+style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><A 
+href="http://paginas.fe.up.pt/~aas/pub/Aulas/Software/OpenGL/Docum/OpenGL_ProgrGuide_html/">OpenGL 
+Programming Guide</A></SPAN></I><SPAN>, designadamente a secção <EM>Specifying a 
+Shading Model</EM> do capítulo 4</SPAN><SPAN style="COLOR: black">. Para 
+esclarecimento de algumas funções particulares, pode consultar-se&nbsp;um 
+dos&nbsp;manuais de referência disponibilizados. Deve também ter alguns 
+conhecimentos teóricos sobre </SPAN><I style="mso-bidi-font-style: normal"><SPAN 
+lang=EN-GB 
+style="COLOR: black; mso-ansi-language: EN-GB">Shading</SPAN></I><SPAN 
+style="COLOR: black"> e </SPAN><I style="mso-bidi-font-style: normal"><SPAN 
+lang=EN-GB style="COLOR: black; mso-ansi-language: EN-GB">Smooth 
+Shading</SPAN></I><SPAN style="COLOR: black">, nomeadamente sobre o método de 
+Gouraud. <O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">1. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B><SPAN style="COLOR: black">Crie a função </SPAN><SPAN 
+class=txtCharChar><FONT face="Courier New">myCylinder(),</FONT></SPAN><SPAN 
+style="COLOR: black"> cujo cabeçalho já existe no código, e utilize-a para 
+desenhar o prisma da imagem (as dimensões encontram-se definidas na zona de 
+declarações do programa, sob o nome cilindro 1). Nesta fase, ignore o parâmetro 
+</SPAN><SPAN class=txtCharChar><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><FONT 
+face="Courier New">smooth</FONT></SPAN></SPAN><SPAN 
+style="COLOR: black">.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><SPAN 
+class=txtCharChar><B><SPAN style="mso-fareast-font-family: 'Courier New'"><SPAN 
+style="mso-list: Ignore"><FONT face="Courier New">2. </FONT><SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;</SPAN></SPAN></SPAN></B></SPAN><SPAN 
+style="COLOR: black">Acrescentando o processamento do parâmetro </SPAN><SPAN 
+class=txtCharChar><SPAN lang=EN-GB style="mso-ansi-language: EN-GB"><FONT 
+face="Courier New">smooth</FONT></SPAN></SPAN><SPAN style="COLOR: black"> 
+(Booleano) na função </SPAN><SPAN class=txtCharChar><FONT 
+face="Courier New"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">myCylinder():</SPAN><O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="mso-list: Ignore">a) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>Modifique a 
+função de forma permitir desenhar prismas (superfície em malha de polígonos 
+planos) e cilindros (superfície arredondada por efeito do método de Gouraud para 
+<I style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">Smooth Shading</SPAN></I>).</P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="mso-list: Ignore">b) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>Utilizando 
+a função assim obtida, faça desenhar o cilindro 2 com as dimensões que constam 
+nas declarações do programa.</P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="mso-list: Ignore">c) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>Experimente 
+vários valores do parâmetro <SPAN class=txtCharChar><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><FONT 
+face="Courier New">slices</FONT></SPAN></SPAN>.</P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="mso-list: Ignore">d) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>Compare com 
+o resultado obtido pela função <SPAN class=txtCharChar><FONT 
+face="Courier New">gluCylinder()</FONT></SPAN>.</P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="mso-list: Ignore">3. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN></B>Qual é 
+o efeito da iluminação suavizada em cada um dos 3 objectos assim constituídos 
+(dois cilindros e "parede" no plano <B style="mso-bidi-font-weight: normal"><I 
+style="mso-bidi-font-style: normal">xy</I></B>)?</P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="mso-list: Ignore">4. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN></B>Altere, 
+na função <SPAN class=txtCharChar><FONT 
+face="Courier New">inicializacao()</FONT></SPAN>, a instrução <SPAN 
+class=txtCharChar><FONT face="Courier New">glShadeModel(GL_SMOOTH)</FONT></SPAN> 
+para <SPAN class=txtCharChar><FONT 
+face="Courier New">glShadeModel(GL_FLAT)</FONT></SPAN>.</P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="mso-list: Ignore">a) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>Que 
+modificações encontra nos mesmos objectos?</P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="mso-list: Ignore">b) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>Dependendo 
+da implementação do OpenGL, os rectângulos podem aparecer como conjuntos de dois 
+triângulos. Relacione as Iluminações Constante e Suavizada com estes 
+rectângulos/triângulos.</P>
+<H2 style="MARGIN: 42pt 0cm 0pt 28.8pt"><SPAN style="mso-list: Ignore">2.2.<SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>Mapeamento 
+de Texturas</H2>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt">O código inicial disponibilizado 
+inclui um ficheiro RGBpixmap.cpp com uma classe que contém dois métodos 
+principais: <SPAN class=txtCharChar><FONT 
+face="Courier New">readBMPFile()</FONT></SPAN> e <SPAN class=txtCharChar><FONT 
+face="Courier New">setTexture()</FONT></SPAN>. Estes dois métodos são evocados 
+na parte final da função <SPAN class=txtCharChar><FONT 
+face="Courier New">inicializacao()</FONT></SPAN> do ficheiro principal para 
+declarar as quatro texturas a utilizar neste grupo de trabalhos práticos:</P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 0pt 35.45pt"><SPAN 
+class=txtCharChar><FONT face="Courier New">readBMPFile()</FONT></SPAN>: o 
+ficheiro com a imagem é lido e esta é armazenada no <I 
+style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">array "pixel"</SPAN></I>;</P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 0pt 35.45pt"><SPAN 
+class=txtCharChar><FONT face="Courier New">setTexture()</FONT></SPAN>: o 
+contéudo de <I style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">pixel</SPAN></I> é passado para o OpenGL que o 
+armazena em estrutura própria; são efectuadas outras inicializações do OpenGL 
+relacionadas com texturas.<O:P></O:P></P>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt">Partindo da cena 3D que se 
+obteve no grupo de exercícios anterior (<B 
+style="mso-bidi-font-weight: normal"><SPAN 
+style="mso-field-code: ' REF _Ref67805224 w h  * MERGEFORMAT '">2</SPAN>.1. 
+<SPAN style="mso-field-code: ' REF _Ref67805224 h  * MERGEFORMAT '"><SPAN 
+lang=EN-GB style="mso-ansi-language: EN-GB">Shading</SPAN> e <SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">Smooth-shading</SPAN></SPAN></B>), pretende-se 
+mapear as quatro texturas fornecidas (<SPAN class=txtCharChar><FONT 
+face="Courier New">clamp.bmp</FONT></SPAN>, <SPAN class=txtCharChar><FONT 
+face="Courier New">feup.bmp</FONT></SPAN>, <SPAN class=txtCharChar><FONT 
+face="Courier New">mandril</FONT></SPAN>, <SPAN class=txtCharChar><FONT 
+face="Courier New">tile.bmp</FONT></SPAN>) em alguns objectos, de acordo com a 
+<SPAN style="mso-field-code: ' REF _Ref66268033 h '">Fig. <SPAN 
+style="mso-no-proof: yes">1</SPAN></SPAN>.</P>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt">Comece por retirar de 
+comentários as seguintes instruções da função <SPAN class=txtCharChar><FONT 
+face="Courier New">inicializacao()</FONT></SPAN>:</P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>pixmap.readBMPFile("&lt;nome de ficheiro&gt;");</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>pixmap.setTexture(&lt;n&gt;);</FONT></P>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt">Assim como as instruções 
+seguintes da função <SPAN class=txtCharChar><FONT 
+face="Courier New">display()</FONT></SPAN>:<O:P></O:P></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm; TEXT-INDENT: 36pt"><FONT 
+face="Courier New">glEnable(GL_TEXTURE_2D);</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm; TEXT-INDENT: 36pt"><FONT 
+face="Courier New">....</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm; TEXT-INDENT: 36pt"><FONT 
+face="Courier New">glDisable(GL_TEXTURE_2D);<O:P></O:P></FONT></P>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt">Substitua o desenho da "parede" 
+do plano XY pelo conjunto de instruções seguinte:</P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>// desenha a "parede" do plano XY</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glBindTexture(GL_TEXTURE_2D, 1);<SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>// activa a textura 1 
+(feup)</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glBegin(GL_POLYGON);</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glNormal3d(0.0,0.0,1.0);</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glTexCoord2f(0.0,0.0); glVertex3d( 0.0,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0);</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glTexCoord2f(1.0,0.0); glVertex3d(dimx,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0);</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glTexCoord2f(1.0,1.0); glVertex3d(dimx, dimy,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0);</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glTexCoord2f(0.0,1.0); glVertex3d( 0.0, dimy,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0);</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glEnd();</FONT></P>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt">Ao correr o programa, pode 
+verificar que este conjunto de instruções mapeia a textura com o identificador 1 
+(ficheiro <SPAN class=txtCharChar><FONT 
+face="Courier New">feup.bmp</FONT></SPAN>, ver parte final da função <SPAN 
+class=txtCharChar><FONT face="Courier New">inicialização()</FONT></SPAN>) sobre 
+o polígono em questão.</P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="mso-list: Ignore">1. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN></B>Como se 
+vê pelo código acima, cada vértice do polígono relaciona-se com um vértice da 
+textura. Avalie o que sucederia se, mantendo-se a ordem dos vértices no 
+polígono, se fizesse "rodar" de uma posição os vértices da textura, i.e.:</P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glTexCoord2f(0.0,1.0); glVertex3d( 0.0,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0);</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glTexCoord2f(0.0,0.0); glVertex3d(dimx,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0);</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glTexCoord2f(1.0,0.0); glVertex3d(dimx, dimy,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0);</FONT></P>
+<P class=txtChar style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT 
+face="Courier New"><SPAN 
+style="mso-tab-count: 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN>glTexCoord2f(1.0,1.0); glVertex3d( 0.0, dimy,<SPAN 
+style="mso-spacerun: yes">&nbsp; </SPAN>0.0); </FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="mso-list: Ignore">2. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></B>Verifique que a relação comprimento/largura da textura (a 
+imagem é quadrada...) não está de acordo com as dimensões do respectivo 
+polígono.</P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="mso-list: Ignore">3. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></B>Implemente a correcção dessa relação, actuando sobre as 
+coordenadas <SPAN class=txtCharChar><B style="mso-bidi-font-weight: normal"><I 
+style="mso-bidi-font-style: normal"><FONT 
+face="Courier New">s,t</FONT></I></B></SPAN> da textura, de forma a cortar 
+automaticamente o necessário na altura da textura.</P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><SPAN 
+class=txtCharChar><B><SPAN style="mso-fareast-font-family: 'Courier New'"><SPAN 
+style="mso-list: Ignore"><FONT face="Courier New">4. </FONT><SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B></SPAN>Desenhe a "parede" do plano <B 
+style="mso-bidi-font-weight: normal"><I 
+style="mso-bidi-font-style: normal">yz</I></B> (dimensões na zona de declarações 
+do programa) e preencha-a com a textura 2 (<SPAN class=txtCharChar><FONT 
+face="Courier New">tile.bmp</FONT></SPAN>), distribuída em formato mosaísta (<I 
+style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">tiling</SPAN></I>) com 5*5 repetições. Deve, 
+para o efeito, tomar conhecimento com a função <SPAN class=txtCharChar><FONT 
+face="Courier New">glTexParameter*().<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l1 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="mso-list: Ignore">a) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>Verifique 
+que a proporção comprimento/largura da textura assim obtida não é correcta.</P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l1 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="mso-list: Ignore">b) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>Corrija o 
+problema anterior, atendendo à relação comprimento/largura do polígono e 
+desenhando, em uma das direcções, o número adequado de réplicas para garantir a 
+correcção da proporção.</P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="mso-list: Ignore">5. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN></B>Desenhe 
+o "chão" e mapeie a textura 3 (<SPAN class=txtCharChar><FONT 
+face="Courier New">clamp.bmp</FONT></SPAN>) em modo <I 
+style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">clamping</SPAN></I>, iniciando com:</P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 0pt"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><B style="mso-bidi-font-weight: normal">(<I 
+style="mso-bidi-font-style: normal">s, t</I>) = (-0.2, -0.2) </B>no vértice <B 
+style="mso-bidi-font-weight: normal"><I 
+style="mso-bidi-font-style: normal">x</I>=10.0</B>, <B 
+style="mso-bidi-font-weight: normal"><I 
+style="mso-bidi-font-style: normal">y</I>=0.0</B>, <B 
+style="mso-bidi-font-weight: normal"><I 
+style="mso-bidi-font-style: normal">z</I>=10.0<O:P></O:P></B></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="mso-list: Ignore">6. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN></B>Desenhe 
+as quatro faces laterais da pirâmide quadrangular.</P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l1 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="mso-list: Ignore">a) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>O eixo da 
+pirâmide coincide com o eixo dos <B style="mso-bidi-font-weight: normal"><I 
+style="mso-bidi-font-style: normal">y</I></B>. Os cinco vértices correspondem a 
+pontos sobre os eixos do sistema de coordenadas com a respectiva coordenada em 
+1. Cada uma das quatro normais pode assim ser definida pelo vector</P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 0pt; TEXT-ALIGN: center" 
+align=center><B style="mso-bidi-font-weight: normal">(±1.0, +1.0, 
+±1.0)<O:P></O:P></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 0pt"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN><U>depois de devidamente normalizado</U>.</P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l1 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="mso-list: Ignore">b) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN>Mapeie a 
+textura 4 (<SPAN class=txtCharChar><FONT 
+face="Courier New">mandril.bmp</FONT></SPAN>) sobre a pirâmide assim obtida. O 
+centro da textura deve coincidir com o vértice superior da pirâmide; deve 
+existir coincidência lateral das texturas de duas faces vizinhas.</P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l1 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="mso-list: Ignore">7. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN></B>Mapeie 
+a totalidade da textura <SPAN class=txtCharChar><FONT 
+face="Courier New">feup.bmp</FONT></SPAN> sobre a superfície do cilindro 
+exterior.</P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 18pt; mso-pagination: none; mso-layout-grid-align: none"><O:P></O:P></P>
+<DIV 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 1pt; BORDER-BOTTOM: medium none; mso-border-top-alt: solid windowtext .5pt">
+<P class=MsoNormal 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; MARGIN: 12pt 0cm 0pt; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: right; mso-border-top-alt: solid windowtext .5pt; mso-padding-alt: 1.0pt 0cm 0cm 0cm" 
+align=right>AAS/JGB/JVV</P></DIV></BODY></HTML>

@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0074)http://paginas.fe.up.pt/~aas/pub/Aulas/CGI/Exercicios/Enunc_G1_Iluminacao/ -->
+<HTML><HEAD><TITLE></TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.2604" name=GENERATOR></HEAD>
+<BODY>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt; TEXT-ALIGN: center" 
+align=center><B><SPAN style="FONT-SIZE: 20pt">Computação Gráfica e Interfaces 
+(LEIC)<O:P></O:P></SPAN></B></P>
+<P class=MsoNormal style="MARGIN: 0cm 0cm 0pt; TEXT-ALIGN: center" 
+align=center><B><SPAN style="FONT-SIZE: 20pt">Sistemas Gráficos 
+(LEEC)<O:P></O:P></SPAN></B></P>
+<P class=MsoNormal style="MARGIN: 12pt 0cm 0pt; TEXT-ALIGN: center" 
+align=center><B>Enunciados de exercícios para as aulas 
+práticas<O:P></O:P></B></P>
+<H1 style="MARGIN: 54pt 0cm 0pt 21.6pt"><SPAN style="mso-list: Ignore"><FONT 
+size=5>1.</FONT><SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN><FONT size=5>Iluminação<O:P></O:P></FONT></H1>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none"><SPAN 
+style="COLOR: black">O objectivo deste grupo de exercícios é estudar modelos de 
+iluminação locais, designadamente pela alteração das propriedades dos materiais 
+(características mais difusas ou mais especulares) e das características da 
+fonte de luz.<O:P></O:P></SPAN></P>
+<P class=Fig style="MARGIN: 12pt 1cm 0pt" align=center><IMG alt="" isMap 
+src="Enunc_G1_Iluminacao_files/fig1_1.jpg"></P><V:SHAPETYPE id=_x0000_t75 
+coordsize="21600,21600" o:spt="75" o:preferrelative="t" 
+path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f"><V:STROKE 
+joinstyle="miter"></V:STROKE><V:FORMULAS><V:F 
+eqn="if lineDrawn pixelLineWidth 0"></V:F><V:F eqn="sum @0 1 0"></V:F><V:F 
+eqn="sum 0 0 @1"></V:F><V:F eqn="prod @2 1 2"></V:F><V:F 
+eqn="prod @3 21600 pixelWidth"></V:F><V:F 
+eqn="prod @3 21600 pixelHeight"></V:F><V:F eqn="sum @0 0 1"></V:F><V:F 
+eqn="prod @6 1 2"></V:F><V:F eqn="prod @7 21600 pixelWidth"></V:F><V:F 
+eqn="sum @8 21600 0"></V:F><V:F eqn="prod @7 21600 pixelHeight"></V:F><V:F 
+eqn="sum @10 21600 0"></V:F></V:FORMULAS><V:PATH o:extrusionok="f" 
+gradientshapeok="t" o:connecttype="rect"></V:PATH><O:LOCK v:ext="edit" 
+aspectratio="t"></O:LOCK></V:SHAPETYPE>
+<P class=FigLegend style="MARGIN: 12pt 1cm 0pt" align=center><A 
+name=_Ref66268033>Fig. <SPAN style="mso-field-code: ' SEQ Fig. * ARABIC '"><SPAN 
+style="mso-no-proof: yes">1</SPAN></SPAN></A> - <SPAN style="COLOR: black">Cena 
+3D em OpenGL</SPAN><O:P></O:P></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none"><SPAN 
+style="COLOR: black">No arquivo </SPAN><B>G1_Ilum</B> é <SPAN 
+style="COLOR: black">fornecido um ficheiro com uma parte do código <B>C/OpenGL 
+</B>da cena da <SPAN style="mso-field-code: ' REF _Ref66268033 h '"><SPAN 
+style="COLOR: windowtext">Fig. <SPAN 
+style="mso-no-proof: yes">1</SPAN></SPAN></SPAN> (também se fornece, para 
+efeitos de referência, o executável correspondente ao código completo). De 
+momento, o interesse principal do código reside nas declarações das variáveis 
+globais e nas funções </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">display()</FONT></SPAN><SPAN style="COLOR: black"> e 
+</SPAN><SPAN class=txtChar><FONT 
+face="Courier New">inicializacao()</FONT></SPAN><SPAN style="COLOR: black">. Na 
+função </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">display()</FONT></SPAN><SPAN style="COLOR: black"> 
+encontram&shy;-se as acções que necessitam de ser executadas sempre que se dá o 
+refrescamento da imagem (várias vezes por segundo), enquanto que na função 
+</SPAN><SPAN class=txtChar><FONT 
+face="Courier New">inicializacao()</FONT></SPAN><SPAN style="COLOR: black">, por 
+razões de eficiência, se<SPAN style="mso-spacerun: yes">&nbsp; </SPAN>encontram 
+as acções que podem ser executadas uma única vez.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none"><SPAN 
+style="COLOR: black">Compile e faça correr o respectivo código. Como se pode 
+observar, a cena inicial é constituída por:<O:P></O:P></SPAN></P>
+<OL style="MARGIN-TOP: 0cm" type=i>
+  <LI class=MsoNormal 
+  style="MARGIN: 0cm 0cm 0pt; COLOR: black; mso-list: l1 level1 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt">uma 
+  fonte de luz pontual, posicionada no espaço com coordenadas atribuídas do 
+  vector <SPAN class=txtChar><SPAN style="COLOR: windowtext"><FONT 
+  face="Courier New">light0_position[]</FONT></SPAN></SPAN> (dado que a fonte de 
+  luz é invisível, encontra-se envolvida por uma esfera para melhor 
+  identificação);<O:P></O:P> 
+  <LI class=MsoNormal 
+  style="MARGIN: 0cm 0cm 0pt; COLOR: black; mso-list: l1 level1 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt">um 
+  sistema de eixos coloridos para melhor identificação (<B><I>x</I></B>, 
+  <B><I>y</I></B>, <B><I>z</I></B> = R, G, B); cada eixo constitui-se de um cone 
+  - função <SPAN class=txtChar><SPAN style="COLOR: windowtext"><FONT 
+  face="Courier New">gluCylinder()</FONT></SPAN></SPAN> - com a base situada na 
+  origem das coordenadas;<O:P></O:P> 
+  <LI class=MsoNormal 
+  style="MARGIN: 0cm 0cm 0pt; COLOR: black; mso-list: l1 level1 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt">um 
+  plano horizontal, composto por um recticulado de pequenos triângulos (<SPAN 
+  class=txtChar><SPAN style="COLOR: windowtext"><FONT 
+  face="Courier New">GL_TRIANGLE_STRIP</FONT></SPAN></SPAN><I>)</I>;<O:P></O:P> 
+  <LI class=MsoNormal 
+  style="MARGIN: 0cm 0cm 0pt; COLOR: black; mso-list: l1 level1 lfo2; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt">duas 
+  faces de uma caixa situada imediatamente abaixo do polígono anterior (<SPAN 
+  class=txtChar><SPAN style="COLOR: windowtext"><FONT 
+  face="Courier New">GL_POLYGON</FONT></SPAN></SPAN>, dentro da função <SPAN 
+  class=txtChar><SPAN style="COLOR: windowtext"><FONT 
+  face="Courier New">myBox()</FONT></SPAN></SPAN> );<O:P></O:P></LI></OL>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none"><SPAN 
+style="COLOR: black">As propriedades da fonte de luz pontual declaram-se nas 
+variáveis </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">light0_xxx</FONT></SPAN><SPAN style="COLOR: black"> e 
+atribuem-se nas chamadas à função </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">glLightfv()</FONT></SPAN><SPAN style="COLOR: black">. A 
+componente de iluminação ambiente </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">light_ambient[]</FONT></SPAN><SPAN style="COLOR: black"> 
+atribui&shy;-se na chamada à função </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">glLightModelfv()</FONT></SPAN><SPAN 
+style="COLOR: black">.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none"><SPAN 
+style="COLOR: black">O plano e a caixa têm as mesmas propriedades reflectoras, 
+i.e. são constituídos pelo mesmo material (</SPAN><SPAN class=txtChar><FONT 
+face="Courier New">mat1_xxx</FONT></SPAN><SPAN style="COLOR: black">); os três 
+eixos não têm um material atribuído, sendo a sua cor declarada directamente 
+(função </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">glColor3f()</FONT></SPAN><SPAN style="COLOR: black"> 
+).<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt; mso-pagination: none; mso-layout-grid-align: none"><I><SPAN 
+style="COLOR: black">Nota</SPAN></I><SPAN style="COLOR: black">: Para uma boa 
+percepção dos exercícios seguintes, leia o manual <I><A 
+href="http://www.fe.up.pt/~aas/pub/Aulas/Software/OpenGL/Docum/OpenGL_ProgrGuide_html/">OpenGL 
+Programming Guide</A></I>, designadamente o capítulo <I>6-Lighting</I>, que lhe 
+permitirá conhecer as principais funções e técnicas disponibilizadas pelo OpenGL 
+no âmbito dos modelos de iluminação local. Para conhecimento dos princípios mais 
+elementares da tecnologia do OpenGL, é </SPAN><B 
+style="mso-bidi-font-weight: normal">indispensável</B> que sejam também lidos 
+os<SPAN style="COLOR: black"> capítulos </SPAN><I><SPAN lang=EN-GB 
+style="COLOR: black; mso-ansi-language: EN-GB">1-Introduction to 
+OpenGL</SPAN></I><SPAN style="COLOR: black"> e </SPAN><I><SPAN lang=EN-GB 
+style="COLOR: black; mso-ansi-language: EN-GB">2-Drawing Geometric 
+Objects</SPAN></I><SPAN style="COLOR: black">. Para esclarecimento de algumas 
+funções particulares, pode consultar-se o manual </SPAN><I 
+style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="COLOR: black; mso-ansi-language: EN-GB"><A 
+href="http://paginas.fe.up.pt/~aas/pub/Aulas/Software/OpenGL/Docum/OpenGL_ReferMan_html/">OpenGL 
+Reference Manual</A></SPAN></I><SPAN lang=EN-GB style="COLOR: black"> 
+</SPAN><SPAN style="COLOR: black">ou o </SPAN><I 
+style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><A 
+href="http://paginas.fe.up.pt/~aas/pub/Aulas/Software/OpenGL/Docum/Other_RefMan_html/">OpenGL 
+Online Manual</A></SPAN></I><SPAN style="COLOR: black">.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">1. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B><SPAN style="COLOR: black">Comece por completar a cena 
+dada, de acordo com a <SPAN style="mso-field-code: ' REF _Ref66268033 h '"><SPAN 
+style="COLOR: windowtext">Fig. <SPAN 
+style="mso-no-proof: yes">1</SPAN></SPAN></SPAN>, terminando a caixa e colocando 
+a esfera branca na origem:<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">a) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><SPAN style="COLOR: black">A caixa é desenhada na função 
+</SPAN><SPAN class=txtChar><FONT face="Courier New">myBox()</FONT></SPAN><SPAN 
+style="COLOR: black"> e constitui&shy;-se de polígonos (</SPAN><SPAN 
+class=txtChar><FONT face="Courier New">GL_POLYGON</FONT></SPAN><SPAN 
+style="COLOR: black">); note que a perfeita visualização de um polígono depende 
+do sentido da sua normal, determinada pelo sentido de rotação com que se 
+declaram os seus vértices e que a sua iluminação também depende do sentido da 
+normal declarada na função </SPAN><FONT face="Courier New"><SPAN 
+class=txtChar>glNormal3d().</SPAN><SPAN 
+style="COLOR: black"><O:P></O:P></SPAN></FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">b) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><SPAN style="COLOR: black">A esfera branca que se encontra 
+na origem das coordenadas desenha-se com a função </SPAN><SPAN 
+class=txtChar><FONT face="Courier New">gluSphere()</FONT></SPAN><SPAN 
+style="COLOR: black"> da biblioteca </SPAN><I><SPAN lang=EN-GB 
+style="COLOR: black; mso-ansi-language: EN-GB">GLU-OpenGL Utility 
+Library</SPAN></I> (ver <I style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB"><A 
+href="http://paginas.fe.up.pt/~aas/pub/Aulas/Software/OpenGL/Docum/Other_RefMan_html/">OpenGL 
+Online Manual</A></SPAN></I><SPAN style="COLOR: black">).<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">2. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B><SPAN style="COLOR: black">Anule o efeito de iluminação 
+da fonte de luz </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">LIGHT0</FONT></SPAN><SPAN style="COLOR: black">, de forma a 
+haver apenas iluminação ambiente (note que existe uma iluminação ambiente global 
+e uma comparticipação da fonte de luz </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">LIGHT0</FONT></SPAN><SPAN style="COLOR: black"> para a 
+iluminação ambiente; esta última deve ser mantida em zero). Analise o resultado 
+de iluminação obtido em cada objecto.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">3. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B><SPAN style="COLOR: black">Reponha as características 
+da fonte </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">LIGHT0</FONT></SPAN><SPAN style="COLOR: black"> e anule a 
+iluminação ambiente. Analise a imagem e identifique, no plano horizontal, os 
+efeitos da reflexão difusa e da reflexão especular.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">4. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B><SPAN style="COLOR: black">Reponha a iluminação 
+ambiente original e verifique as alterações <U>sobre a alínea anterior</U>. 
+Tenha particular atenção às faces laterais e inferior da 
+caixa.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">5. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B><SPAN style="COLOR: black">Tente responder às seguintes 
+alíneas <U>antes</U> de verificar, nas imagens da cena, o resultado das 
+respectivas alterações do código.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><A 
+name=_Ref67660574><SPAN style="COLOR: black"><SPAN style="mso-list: Ignore">a) 
+<SPAN style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><SPAN style="COLOR: black">Qual é o efeito, sobre a 
+iluminação do plano horizontal, de fazer subir a fonte de luz </SPAN></A><SPAN 
+style="mso-bookmark: _Ref67660574"><SPAN class=txtChar><FONT 
+face="Courier New">LIGHT0</FONT></SPAN><SPAN style="COLOR: black"> no espaço 
+(aumento da sua coordenada <B><I>y</I></B>)?</SPAN></SPAN><SPAN 
+style="COLOR: black"><O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">b) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><SPAN style="COLOR: black">O que sucede à mancha de luz 
+especular se o parâmetro </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">mat1_shininess[]</FONT></SPAN><SPAN style="COLOR: black"> for 
+alterado? Experimente vários valores, por exemplo, 4, 16, 64, 
+256.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">c) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><SPAN style="COLOR: black">O que sucede à mancha de luz 
+especular se o parâmetro </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">mat1_specular[r,g,b]</FONT></SPAN><SPAN style="COLOR: black"> 
+for alterado? Experimente vários valores, por exemplo, </SPAN><SPAN 
+class=txtChar><SPAN style="FONT-SIZE: 10pt"><FONT 
+face="Courier New">{0.0,0.0,0.0}</FONT></SPAN></SPAN><SPAN 
+style="COLOR: black">, </SPAN><SPAN class=txtChar><SPAN 
+style="FONT-SIZE: 10pt"><FONT 
+face="Courier New">{0.2,0.2,0.2}</FONT></SPAN></SPAN><SPAN 
+style="COLOR: black">, </SPAN><SPAN class=txtChar><SPAN 
+style="FONT-SIZE: 10pt"><FONT 
+face="Courier New">{0.4,0.4,0.4}</FONT></SPAN></SPAN><SPAN 
+style="COLOR: black">, </SPAN><SPAN class=txtChar><SPAN 
+style="FONT-SIZE: 10pt"><FONT 
+face="Courier New">{0.6,0.6,0.6}</FONT></SPAN></SPAN><SPAN 
+style="COLOR: black">, </SPAN><SPAN class=txtChar><SPAN 
+style="FONT-SIZE: 10pt"><FONT 
+face="Courier New">{0.8,0.8,0.8}</FONT></SPAN></SPAN><SPAN 
+style="COLOR: black">, </SPAN><SPAN class=txtChar><SPAN 
+style="FONT-SIZE: 10pt"><FONT 
+face="Courier New">{1.0,1.0,1.0}</FONT></SPAN></SPAN><SPAN style="COLOR: black"> 
+e utilize </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">mat1_shininess=128</FONT></SPAN><SPAN 
+style="COLOR: black">.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">6. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B><SPAN style="COLOR: black">Modifique os coeficientes 
+RGB de reflexão <U>ambiente</U> e <U>difusa</U> do material </SPAN><SPAN 
+class=txtChar><FONT face="Courier New">mat1_xxx</FONT></SPAN><SPAN 
+style="COLOR: black"> anulando os componentes vermelho e verde e critique os 
+resultados obtidos nas seguintes condições:<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">a) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><SPAN style="COLOR: black">Mantendo os coeficientes de 
+reflexão especular nos valores originais,<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">b) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><SPAN style="COLOR: black">Anulando também os coeficientes 
+vermelho e verde da reflexão especular,<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">c) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN><SPAN style="COLOR: black">Alterando ainda a fonte de luz 
+</SPAN><SPAN class=txtChar><FONT face="Courier New">LIGHT0</FONT></SPAN><SPAN 
+style="COLOR: black"> para a cor amarela pura.<O:P></O:P></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="COLOR: black"><SPAN style="mso-list: Ignore">7. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></B><SPAN style="COLOR: black">Adicione, nas declarações da 
+fonte de luz </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">LIGHT0</FONT></SPAN><SPAN style="COLOR: black">, os três 
+parâmetros </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">light0_kc</FONT></SPAN>, <SPAN class=txtChar><FONT 
+face="Courier New">light0_kl </FONT></SPAN>e <SPAN class=txtChar><FONT 
+face="Courier New">light0_kq </FONT></SPAN><SPAN style="COLOR: black">utilizados 
+no cálculo do respectivo factor de atenuação, de acordo com as instruções 
+seguintes, que devem também ser adicionadas ao código da função </SPAN><SPAN 
+class=txtChar><FONT face="Courier New">inicializacao()</FONT></SPAN>, no 
+contexto das inicializações da fonte de luz<SPAN style="COLOR: black">: 
+<O:P></O:P></SPAN></P>
+<P class=txt style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT face="Courier New"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>glLightf(GL_LIGHT0, 
+GL_CONSTANT_ATTENUATION,<SPAN style="mso-spacerun: yes">&nbsp; 
+</SPAN>light0_kc);</FONT></P>
+<P class=txt style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT face="Courier New"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>glLightf(GL_LIGHT0, 
+GL_LINEAR_ATTENUATION,<SPAN style="mso-spacerun: yes">&nbsp; </SPAN><SPAN 
+style="mso-spacerun: yes">&nbsp;&nbsp;</SPAN>light0_kl);</FONT></P>
+<P class=txt style="MARGIN: 0cm -24.1pt 0pt 0cm"><FONT face="Courier New"><SPAN 
+style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>glLightf(GL_LIGHT0, 
+GL_QUADRATIC_ATTENUATION, light0_kq);</FONT></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+style="mso-list: Ignore">a) <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN><SPAN 
+style="COLOR: black">Faça </SPAN><SPAN class=txtChar><FONT 
+face="Courier New">light0_kc=1.0</FONT></SPAN>, <SPAN class=txtChar><FONT 
+face="Courier New">light0_kl=0.0 </FONT></SPAN>e <SPAN class=txtChar><FONT 
+face="Courier New">light0_kq=0.0</FONT></SPAN>; comente a iluminação obtida 
+n<SPAN style="COLOR: black">o plano </SPAN>(<I 
+style="mso-bidi-font-style: normal"><SPAN lang=EN-GB 
+style="mso-ansi-language: EN-GB">defaults</SPAN></I>, mancha de iluminação 
+difusa, mancha de iluminação especular; iluminação nos vértices, aspecto geral 
+da iluminação...)<SPAN style="COLOR: black">, </SPAN>nas situações <SPAN 
+class=txtChar><FONT face="Courier New">light0_y=1</FONT></SPAN>, <SPAN 
+class=txtChar><FONT face="Courier New">light0_y=3</FONT></SPAN> e <SPAN 
+class=txtChar><FONT face="Courier New">light0_y=6</FONT></SPAN>.</P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+class=txtChar><SPAN style="mso-fareast-font-family: 'Courier New'"><SPAN 
+style="mso-list: Ignore"><FONT face="Courier New">b) </FONT><SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></SPAN>Repita a alínea anterior com <SPAN 
+class=txtChar><FONT face="Courier New">light0_kc=0.0</FONT></SPAN>, <SPAN 
+class=txtChar><FONT face="Courier New">light0_kl=1.0 </FONT></SPAN>e <SPAN 
+class=txtChar><FONT 
+face="Courier New">light0_kq=0.0.<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 0cm 0cm 0pt 36pt; TEXT-INDENT: -18pt; mso-list: l0 level2 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 36.0pt"><SPAN 
+class=txtChar><SPAN style="mso-fareast-font-family: 'Courier New'"><SPAN 
+style="mso-list: Ignore"><FONT face="Courier New">c) </FONT><SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></SPAN></SPAN>Idem, com <SPAN class=txtChar><FONT 
+face="Courier New">light0_kc=0.0</FONT></SPAN>, <SPAN class=txtChar><FONT 
+face="Courier New">light0_kl=0.0 </FONT></SPAN>e <SPAN class=txtChar><FONT 
+face="Courier New">light0_kq=1.0<O:P></O:P></FONT></SPAN></P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="mso-list: Ignore">8. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; </SPAN></SPAN></B>Como 
+comprova, sobre a imagem, a ausência de "Projecção de Sombras"?</P>
+<P class=MsoNormal 
+style="MARGIN: 12pt 0cm 0pt 18pt; TEXT-INDENT: -18pt; mso-list: l0 level1 lfo3; mso-pagination: none; mso-layout-grid-align: none; tab-stops: list 18.0pt"><B><SPAN 
+style="mso-list: Ignore">9. <SPAN 
+style="FONT: 7pt 'Times New Roman'">&nbsp;&nbsp;&nbsp; 
+</SPAN></SPAN></B>Justifique a necessidade, neste grupo de problemas, de o plano 
+ser constituído por um conjunto de <I style="mso-bidi-font-style: normal"><SPAN 
+lang=EN-GB style="mso-ansi-language: EN-GB">stripes</SPAN></I> em lugar de um 
+rectângulo único.</P>
+<DIV 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: windowtext 1pt solid; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; BORDER-LEFT: medium none; PADDING-TOP: 1pt; BORDER-BOTTOM: medium none; mso-border-top-alt: solid windowtext .5pt">
+<P class=MsoNormal 
+style="BORDER-RIGHT: medium none; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 0cm; PADDING-BOTTOM: 0cm; MARGIN: 12pt 0cm 0pt; BORDER-LEFT: medium none; PADDING-TOP: 0cm; BORDER-BOTTOM: medium none; TEXT-ALIGN: right; mso-border-top-alt: solid windowtext .5pt; mso-padding-alt: 1.0pt 0cm 0cm 0cm" 
+align=right>AAS/JGB/JVV</P></DIV></BODY></HTML>
